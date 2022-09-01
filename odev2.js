@@ -13,6 +13,19 @@
 
 //örnek array
 
+Array.prototype.groupByCustom = function (func) {
+  const keys = this.map(func);
+
+  const grouptedArr = this.reduce((prev, curr, idx) => {
+    if (!Object.keys(prev).includes(keys[idx])) prev[keys[idx]] = []
+
+    prev[keys[idx]].push(curr)
+    return prev
+  }, {})
+
+  return grouptedArr
+}
+
 const array = [
     {
         "name": "Marge Simpson",
@@ -239,6 +252,9 @@ const array = [
         "gender": "m"
     },
 ]
+
+console.log(array.groupByCustom(item=>item.gender))
+console.log(array.groupByCustom(item=>item.name[0]))
 
 //örnek çıktı array.groupByCustom(item=>item.gender) için
 /*
