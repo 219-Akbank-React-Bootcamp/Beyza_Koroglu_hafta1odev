@@ -1,12 +1,23 @@
-/** 
+/**
  * Size verilen iki adet array’den
  * uygun methodları kullanarak yeni
  * bir object oluşturmanız gerekiyor.
- * Ve bu obje key-value şeklinde 
+ * Ve bu obje key-value şeklinde
  * doğru eşleştirme yapılarak
- * oluşturulmalı. 
+ * oluşturulmalı.
  */
 
+const denormalization = (obj) => {
+  const denormalizedArr = obj.data.reduce((prevArr, currArr) => {
+    let denormalizedObj = currArr.reduce((prevObj, currValue, idx) => {
+      prevObj[obj.cols[idx]] = currValue;
+      return prevObj;
+    }, {});
+    prevArr.push(denormalizedObj);
+    return prevArr;
+  }, []);
+  return denormalizedArr;
+};
 
 const input = {
     "cols": ["Name Surname", "Company", "Email", "Date", "Country", "City"],
@@ -14,6 +25,9 @@ const input = {
         ["Hyacinth Vincent", "Duis Corporation", "iaculis.enim@magnaCrasconvallis.ca", "28/06/2022", "Eritrea", "Lyubertsy"],
         ["Brenden Martinez", "Volutpat Nunc Associates", "iaculis@estMauris.org", "24/03/2021", "British Indian Ocean Territory", "Colwood"]]
 }
+
+const denormalizedInput = denormalization(input);
+console.log(denormalizedInput)
 
 const sampleoutput = [
     {
