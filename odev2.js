@@ -14,7 +14,8 @@
 //örnek array
 
 Array.prototype.groupByCustom = function (func) {
-  const keys = this.map(func);
+  let keys = this.map(func);
+  keys=keys.map(key=> String(key).toUpperCase())
 
   const grouptedArr = this.reduce((prev, curr, idx) => {
     if (!Object.keys(prev).includes(keys[idx])) prev[keys[idx]] = []
@@ -23,238 +24,298 @@ Array.prototype.groupByCustom = function (func) {
     return prev
   }, {})
 
-  return grouptedArr
+  const sorted = Object.fromEntries(Object.entries(grouptedArr).sort())
+  return sorted
 }
 
 const array = [
     {
         "name": "Marge Simpson",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Bart Simpson",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Lisa Simpson",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Moe Szyslak",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Seymour Skinner",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Ned Flanders",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Grampa Simpson",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Chief Wiggum",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Milhouse Van Houten",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Waylon Smithers",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Nelson Muntz",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Edna Krabappel-Flanders",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Announcer",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Selma Bouvier",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Barney Gumble",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Patty Bouvier",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Martin Prince",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Otto Mann",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Lou",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Todd Flanders",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Dr. Marvin Monroe",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Dr. J. Loren Pyror",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Dewey Largo",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Eddie",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Teacher",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Clerk",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Father",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Sherri Mackleberry",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "JANEY",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Ms. Melon",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Interviewer",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Ethan Foley",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Terri Mackleberry",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Voice",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Receptionist",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Kent Brockman",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Apu Nahasapeemapetilon",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Lenny Leonard",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Carl Carlson",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Sideshow Bob",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Ralph Wiggum",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Jimbo Jones",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Agnes Skinner",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Kearney Zzyzwicz",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "DOLPH",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Judge Snyder",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Jacques",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Salesman",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Woman",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Rod Flanders",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Manager",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Bleeding Gums Murphy",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Cowboy Bob",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Jacqueline Bouvier",
-        "gender": "f"
+        "gender": "f",
+        "age": 24
     },
     {
         "name": "Waiter",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
     {
         "name": "Gulliver Dark",
-        "gender": "m"
+        "gender": "m",
+        "age": 30
     },
 ]
 
 console.log(array.groupByCustom(item=>item.gender))
 console.log(array.groupByCustom(item=>item.name[0]))
+console.log(array.groupByCustom(item=>item.name[4]))
+console.log(array.groupByCustom(item=>item.age>25))
+
 
 //örnek çıktı array.groupByCustom(item=>item.gender) için
 /*
